@@ -17,7 +17,7 @@ define( function( require ) {
   var exampleSim = require( 'EXAMPLE_SIM/exampleSim' );
   var inherit = require( 'PHET_CORE/inherit' );
   var ModelViewTransform2 = require( 'PHETCOMMON/view/ModelViewTransform2' );
-  var ScreenView = require( 'JOIST/ScreenView' );
+  var AccessibleScreenView = require( 'JOIST/AccessibleScreenView' );
   var Vector2 = require( 'DOT/Vector2' );
 
   /**
@@ -28,7 +28,7 @@ define( function( require ) {
    */
   function ExampleScreenView( model ) {
 
-    ScreenView.call( this, {
+    AccessibleScreenView.call( this, {
       layoutBounds: new Bounds2( 0, 0, 768, 504 )
     } );
 
@@ -36,14 +36,20 @@ define( function( require ) {
     var center = new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 );
     var modelViewTransform = ModelViewTransform2.createOffsetScaleMapping( center, 1 );
 
-    this.addChild( new BarMagnetNode( model.barMagnet, modelViewTransform ) );
-    this.addChild( new ControlPanel( model, {
+    var barMagnetNode = new BarMagnetNode( model.barMagnet, modelViewTransform );
+    var controlPanel = new ControlPanel( model, {
       x: 50,
       y: 50
-    } ) );
+    } );
+    this.addChild( barMagnetNode );
+    this.addChild( controlPanel );
+
+    // a11y - put content into their respective sections of the simulation
+    this.playAreaNode.accessibleOrder = [ barMagnetNode ];
+    this.controlAreaNode.accessibleOrder = [ controlPanel ];
   }
 
   exampleSim.register( 'ExampleScreenView', ExampleScreenView );
 
-  return inherit( ScreenView, ExampleScreenView );
+  return inherit( AccessibleScreenView, ExampleScreenView );
 } );

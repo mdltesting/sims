@@ -27,16 +27,23 @@ define( function( require ) {
    * @param {ModelViewTransform2} modelViewTransform - the coordinate transform between model coordinates and view coordinates
    * @constructor
    */
-  function BarMagnetNode( barMagnet, modelViewTransform ) {
+  function BarMagnetNode( barMagnet, modelViewTransform, options ) {
 
     var self = this;
 
-    // Call the super constructor
-    Node.call( this, {
+    options =  _.extend( {
+
+      tagName: 'div',
+      focusable: true,
+      accessibleName: 'Bar Magnet',
+      helpText: 'Bar Magnet has a "North" pole and a "South" pole.',
 
       // Show a cursor hand over the bar magnet
       cursor: 'pointer'
-    } );
+    }, options );
+
+    // Call the super constructor
+    Node.call( this, options );
 
     // Add the centered bar magnet image
     this.addChild( new Image( barMagnetImage, {
