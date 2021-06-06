@@ -1,5 +1,5 @@
 // Copyright 2013-2020, University of Colorado Boulder
-
+// @ts-nocheck
 /**
  * Model for the 'Example' screen.
  *
@@ -14,6 +14,7 @@ import exampleSim from '../../exampleSim.js';
 import BarMagnet from './BarMagnet.js';
 
 class ExampleModel {
+  public readonly barMagnet: BarMagnet;
 
   constructor() {
 

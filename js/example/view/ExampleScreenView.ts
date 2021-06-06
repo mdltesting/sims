@@ -15,14 +15,14 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import exampleSim from '../../exampleSim.js';
 import BarMagnetNode from './BarMagnetNode.js';
 import ControlPanel from './ControlPanel.js';
+import ExampleModel from '../model/ExampleModel.js';
 
 class ExampleScreenView extends ScreenView {
 
   /**
    * @param {ExampleModel} model - the model for the entire screen
    */
-  constructor( model ) {
-
+  constructor( model: ExampleModel ) {
     super( {
       layoutBounds: new Bounds2( 0, 0, 768, 504 )
     } );
@@ -33,8 +33,8 @@ class ExampleScreenView extends ScreenView {
 
     this.addChild( new BarMagnetNode( model.barMagnet, modelViewTransform ) );
     this.addChild( new ControlPanel( model, {
-      x: 50,
-      y: 50
+      xMargin: 10,
+      yMargin: 10
     } ) );
   }
 }

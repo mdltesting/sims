@@ -11,8 +11,12 @@
 
 import Property from '../../../../axon/js/Property.js';
 import exampleSim from '../../exampleSim.js';
+import Dimension2 from '../../../../dot/js/Dimension2';
 
 class BarMagnet {
+  size: Dimension2;
+  positionProperty: Property;
+  orientationProperty: Property;
 
   /**
    * Create a new bar magnet model. The magnet has fixed size, and mutable position and orientation.

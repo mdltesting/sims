@@ -1,4 +1,5 @@
 // Copyright 2013-2020, University of Colorado Boulder
+// @ts-nocheck
 
 /**
  * Panel of controls at the top left of the sim. It contains controls for flipping the magnet and the reset all button.
@@ -16,14 +17,23 @@ import TextPushButton from '../../../../sun/js/buttons/TextPushButton.js';
 import Panel from '../../../../sun/js/Panel.js';
 import exampleSim from '../../exampleSim.js';
 import exampleSimStrings from '../../exampleSimStrings.js';
+import ExampleModel from '../model/ExampleModel.js';
+
+declare interface ControlPanelOptions {
+  xMargin?: number,
+  yMargin?: number
+}
+
+// const x: number = 'hello';
+// console.log( x );
 
 class ControlPanel extends Panel {
 
   /**
    * @param {ExampleModel} model - the model for the entire screen
-   * @param {Object} [options] - scenery options for rendering the control panel, see the constructor for options
+   * @param {ControlPanelOptions} [options] - scenery options for rendering the control panel, see the constructor for options
    */
-  constructor( model, options ) {
+  constructor( model: ExampleModel, options?: ControlPanelOptions ) {
 
     // Demonstrate a common pattern for specifying options and providing default values
     options = merge( {
@@ -34,6 +44,7 @@ class ControlPanel extends Panel {
     }, options );
 
     // 'Flip Polarity' button
+    // @ts-ignore
     const flipButton = new TextPushButton( exampleSimStrings.flipPolarity, {
       font: new PhetFont( 16 ),
       baseColor: 'yellow',
