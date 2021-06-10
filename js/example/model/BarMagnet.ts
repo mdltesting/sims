@@ -12,6 +12,7 @@
 import Property from '../../../../axon/js/Property.js';
 import exampleSim from '../../exampleSim.js';
 import Dimension2 from '../../../../dot/js/Dimension2';
+import Vector2 from '../../../../dot/js/Vector2';
 
 class BarMagnet {
   size: Dimension2;
@@ -25,7 +26,7 @@ class BarMagnet {
    * @param {Vector2} position - the position of the bar magnet in model coordinates
    * @param {number} orientation - in radians
    */
-  constructor( size, position, orientation ) {
+  constructor( size: Dimension2, position: Vector2, orientation: number ) {
 
     // @public (read-only) {Dimension2} the size of the bar magnet in model coordinates
     this.size = size;
