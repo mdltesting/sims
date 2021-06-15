@@ -8,7 +8,11 @@
       "path": "../chipper"
     }
   ],
-  "files": [
-    "js/example-sim-main.js"
-  ]
+  "include": [
+    "js/**/*",
+    "images/**/*",
+    "sounds/**/*",
+    "mipmaps/**/*"
+  ],
+  "exclude": ["node_modules"]
 }
