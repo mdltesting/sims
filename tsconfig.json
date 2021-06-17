@@ -1,11 +1,8 @@
 {
   "extends": "../chipper/tsconfig-core.json",
-  "compilerOptions": {
-    "outDir": "../chipper/dist/example-sim"
-  },
   "references": [
     {
-      "path": "../chipper"
+      "path": "../chipper/tsconfig-common.json"
     }
   ],
   "include": [
@@ -14,5 +11,8 @@
     "sounds/**/*",
     "mipmaps/**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
 }
