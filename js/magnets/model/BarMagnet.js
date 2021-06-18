@@ -1,8 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Model of a simple bar magnet.
- * The magnet has fixed size, and mutable position and orientation.
+ * BarMagnet is the model of a simple bar magnet. The magnet has fixed size, and mutable position and orientation.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Sam Reid (PhET Interactive Simulations)
@@ -15,8 +14,6 @@ import exampleSim from '../../exampleSim.js';
 class BarMagnet {
 
   /**
-   * Create a new bar magnet model. The magnet has fixed size, and mutable position and orientation.
-   *
    * @param {Dimension2} size - the size of the bar magnet in model coordinates
    * @param {Vector2} position - the position of the bar magnet in model coordinates
    * @param {number} orientation - in radians
@@ -34,7 +31,7 @@ class BarMagnet {
   }
 
   /**
-   * Restores the initial state of the BarMagnet. This method is called when the simulation "Reset All" button is
+   * Restores the initial state of the BarMagnet. This method is called when the simulation's "Reset All" button is
    * pressed. Note that BarMagnet.size is constant and does not need to be reset.
    * @public
    */

@@ -1,7 +1,7 @@
 // Copyright 2013-2020, University of Colorado Boulder
 
 /**
- * Main entry point for the sim.
+ * This is the main entry point for the sim.
  *
  * @author Chris Malley (PixelZoom, Inc.)
  * @author Sam Reid (PhET Interactive Simulations)
@@ -9,12 +9,15 @@
 
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
-import ExampleScreen from './example/ExampleScreen.js';
 import exampleSimStrings from './exampleSimStrings.js';
+import MagnetsScreen from './magnets/MagnetsScreen.js';
+import ParticlesScreen from './particles/ParticlesScreen.js';
 
 const simOptions = {
+
+  // These credits will appear in the About dialog, accessed from the PhET menu in the navigation bar.
+  // All credits fields are optional, see joist.AboutDialog.
   credits: {
-    // all credits fields are optional, see joist.AboutDialog
     leadDesign: 'Boris',
     softwareDevelopment: 'Natasha',
     team: 'Chico, Groucho, Gummo, Harpo, Zeppo',
@@ -25,6 +28,8 @@ const simOptions = {
 };
 
 simLauncher.launch( () => {
-  const sim = new Sim( exampleSimStrings[ 'example-sim' ].title, [ new ExampleScreen() ], simOptions );
+  const title = exampleSimStrings[ 'example-sim' ].title;
+  const screens = [ new MagnetsScreen(), new ParticlesScreen() ];
+  const sim = new Sim( title, screens, simOptions );
   sim.start();
 } );
