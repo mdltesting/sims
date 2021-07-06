@@ -66,6 +66,11 @@ class BarMagnetNode extends Node {
     barMagnet.orientationProperty.link( orientation => {
       this.rotation = orientation;
     } );
+
+    // Observe changes in model visibleProperty and update the view.
+    barMagnet.visibleProperty.link( visible => {
+      this.visible = visible;
+    } );
   }
 }
 

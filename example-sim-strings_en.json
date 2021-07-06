@@ -11,7 +11,16 @@
   "magnetControls": {
     "value": "Magnet Controls"
   },
+  "moveMagnet": {
+    "value": "Move Magnet"
+  },
   "flipPolarity": {
     "value": "Flip Polarity"
+  },
+  "addMagnet": {
+    "value": "Add Magnet"
+  },
+  "toggleVisibility":{
+    "value": "Toggle Visibility"
   }
 }

@@ -9,17 +9,18 @@
  * @author Steele Dalton (PhET Interactive Simulations)
  */
 
-import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import exampleSim from '../../exampleSim.js';
 import BarMagnet from './BarMagnet.js';
+import createObservableArray from '../../../../axon/js/createObservableArray.js';
 
 class MagnetsModel {
 
   constructor() {
 
     // @public {BarMagnet} initial bar magnet model element
-    this.barMagnet = new BarMagnet( new Dimension2( 250, 50 ), new Vector2( 0, 0 ), 0 );
+    this.barMagnet = this.createBarMagnet( new Vector2( 0, 0 ) );
+    this.additionalBarMagnets = createObservableArray();
   }
 
   /**
@@ -29,6 +30,19 @@ class MagnetsModel {
    */
   reset() {
     this.barMagnet.reset();
+  }
+
+  /**
+   *
+    * @param magnetPosition
+   * @returns {BarMagnet}
+   * @public
+   */
+  createBarMagnet( magnetPosition ) {
+    return new BarMagnet( {
+      position: magnetPosition,
+      orientation: 1
+    } );
   }
 }
 

@@ -17,6 +17,7 @@ import ExampleSimConstants from '../../common/ExampleSimConstants.js';
 import exampleSim from '../../exampleSim.js';
 import BarMagnetNode from './BarMagnetNode.js';
 import MagnetsControlPanel from './MagnetsControlPanel.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 
 class MagnetsScreenView extends ScreenView {
 
@@ -25,7 +26,9 @@ class MagnetsScreenView extends ScreenView {
    */
   constructor( model ) {
 
-    super();
+    super( {
+      layoutBounds: new Bounds2( 0, 0, 768, 504 )
+    } );
 
     // transform between model coordinates and view coordinates
     const center = new Vector2( this.layoutBounds.width / 2, this.layoutBounds.height / 2 );
@@ -35,7 +38,7 @@ class MagnetsScreenView extends ScreenView {
     this.addChild( new BarMagnetNode( model.barMagnet, modelViewTransform ) );
 
     // Add the control panel for magnets, positioned at the top-right of the screen.
-    this.addChild( new MagnetsControlPanel( model, {
+    this.addChild( new MagnetsControlPanel( model, this.layoutBounds, modelViewTransform, {
       right: this.layoutBounds.right - ExampleSimConstants.SCREEN_VIEW_X_MARGIN,
       top: this.layoutBounds.top + ExampleSimConstants.SCREEN_VIEW_Y_MARGIN
     } ) );
@@ -43,7 +46,15 @@ class MagnetsScreenView extends ScreenView {
     // Add the 'Reset All' button. This resets the simulation to its initial state. By PhET convention, this
     // button is positioned at the lower-right of the screen.
     this.addChild( new ResetAllButton( {
-      listener: () => model.reset(),
+      listener: () => {
+
+        // Interrupt any other user interactions that may be in progress, needed for multi-touch.
+        // To demonstrate, press the Reset All button while dragging the magnet.
+        this.interruptSubtreeInput();
+
+        // Reset the model
+        model.reset();
+      },
       right: this.layoutBounds.right - ExampleSimConstants.SCREEN_VIEW_X_MARGIN,
       bottom: this.layoutBounds.bottom - ExampleSimConstants.SCREEN_VIEW_Y_MARGIN
     } ) );
