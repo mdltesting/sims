@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2013-2021, University of Colorado Boulder
 
 /**
  * This is the main entry point for the sim.
@@ -22,7 +22,7 @@ const simOptions = {
     softwareDevelopment: 'Natasha',
     team: 'Chico, Groucho, Gummo, Harpo, Zeppo',
     qualityAssurance: 'Curly, Larry, Moe',
-    graphicArts: 'Rembrandt Harmenszoon van Rijn',
+    graphicArts: 'Dali, Picasso, Warhol',
     thanks: 'Thanks to the ACME Dynamite Company for funding this sim!'
   }
 };

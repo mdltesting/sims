@@ -1,4 +1,4 @@
-// Copyright 2013-2020, University of Colorado Boulder
+// Copyright 2021, University of Colorado Boulder
 
 /**
  * MagnetsScreenView is the top-level view component for the 'Magnets' screen. All of the components that make up
@@ -49,7 +49,7 @@ class MagnetsScreenView extends ScreenView {
       listener: () => {
 
         // Interrupt any other user interactions that may be in progress, needed for multi-touch.
-        // To demonstrate, press the Reset All button while dragging the magnet.
+        // To demonstrate, press the Reset All button while dragging the magent.
         this.interruptSubtreeInput();
 
         // Reset the model
