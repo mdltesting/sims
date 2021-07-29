@@ -36,6 +36,8 @@ class BarMagnet {
 
     // @public {number} in radians
     this.orientationProperty = new Property( orientation );
+
+    assert && assert( true, 'test assertion' );
   }
 
   /**
